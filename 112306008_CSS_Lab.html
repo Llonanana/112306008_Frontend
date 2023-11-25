@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first CSS stylesheet</title>
+    <link rel="stylesheet" type="text/css" href="112306008_CSS_Lab.css">
+</head>
+<body>
+    <h1 class="heading">My first style page</h1>
+    <p><em>Hello, this is my first CSS stylesheet example.</em></p>
+    <p><em>I am a student at National Chengchi University.</em></p>
+    <p><em>My name is Llona, and I love playing volleyball.</em></p>
+    <ul class="navbar">
+        <em>
+            <li>Family</li>
+            <li>Hobby</li>
+            <li class="dropdown">
+                Contact
+                <ul class="dropdown-content">
+                    <li>Gmail</li>
+                    <li>Phone</li>
+                    <li>Message</li>
+                </ul>
+            </li>
+            <li>Songs</li>
+        </em>
+    </ul>
+    <p>If you have any problem, please contact me.</p>
+    <style>
+        .content-block {
+            background-color: rgb(102, 106, 173);
+            color: white;
+            font-family: "cursive", serif, arial;
+            padding: 10px;
+            text-align: center;
+        }
+
+        body {
+            color: rgb(25, 26, 46);
+            background-color: rgb(248, 253, 201);
+            font-family: "cursive", serif, arial;
+            margin: 0;
+        }
+
+        h1 {
+            font-family: "fantasy";
+            font-size: 40pt;
+        }
+
+        p em {
+            text-decoration: underline;
+            font-size: 22pt;
+        }
+
+        @media screen and (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Adjust styles for small screens */
+            .dropdown-content {
+                position: static;
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+                /* Show dropdown content on hover */
+            }
+
+            .dropdown-content li {
+                display: none;
+            }
+
+            .dropdown-content li {
+                display: block;
+                /* Show list items on hover */
+            }
+        }
+
+        .homepage-text {
+            font-family: "cursive", serif, arial;
+            padding: 20px;
+            text-align: left;
+            font-size: 16pt;
+        }
+
+        @media print {
+            body {
+                font-weight: 900;
+            }
+        }
+    </style>
+</body>
+</html>

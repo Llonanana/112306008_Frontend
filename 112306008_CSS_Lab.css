@@ -1,0 +1,85 @@
+.navbar {
+    color: #001f3f; /* Deep blue color for text */
+    background-color: #add8e6; /* Light blue background color */
+    padding: 1.5em 2em;
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.navbar li {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 10px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #add8e6; /* Light blue background color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center; /* Center the text */
+    padding: 10px;
+    list-style: none;
+    border-radius: 8px;
+}
+
+.dropdown:hover {
+    background-color: #87CEEB; /* Darker blue color on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    background-color: #add8e6;
+    display: block;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.email {
+    background-color: #add8e6;
+    color: #001f3f; /* Deep blue color for text */
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center; /* Center the text */
+}
+
+body {
+    color: #001f3f; /* Deep blue color for text */
+    background-color: #ecf0f1; /* Light gray background color */
+    font-family: "Arial", sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-family: "fantasy";
+    font-size: 40pt;
+    text-align: center; /* Center the text */
+}
+
+p em {
+    font-size: 22pt;
+    text-decoration: none; /* Remove underlines */
+}
+
+.homepage-text {
+    font-family: "cursive", serif, arial;
+    padding: 20px;
+    text-align: center; /* Center the text */
+    font-size: 16pt;
+}
