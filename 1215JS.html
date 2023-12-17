@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #008080;
+        }
+
+        button {
+            background-color: #008080;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #005757;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to a Beautiful Page!</h1>
+
+    <button onclick="showFirstInput()">Click to Enter 1st Input</button>
+    <button onclick="showSecondInput()">Click to Enter 2nd Input</button>
+
+    <script>
+        function showFirstInput() {
+            var firstInput = prompt("Enter the 1st input:");
+            displayInput(firstInput);
+        }
+
+        function showSecondInput() {
+            var secondInput = prompt("Enter the 2nd input:");
+            displayInput(secondInput);
+        }
+
+        function displayInput(input) {
+            document.body.style.backgroundColor = '';
+
+            if (input > (prompt('Enter the other input:'))) {
+                document.body.style.backgroundColor = '#e0f7fa'; // light blue
+                alert(input + ' > ' + secondInput);
+            } else if (input < (prompt('Enter the other input:'))) {
+                document.body.style.backgroundColor = '#ffcc80'; // orange
+                alert(input + ' < ' + secondInput);
+            } else {
+                document.body.style.backgroundColor = '#fff176'; // light yellow
+                alert(input + ' == ' + secondInput);
+            }
+        }
+    </script>
+
+</body>
+</html>
