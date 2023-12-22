@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Probability</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #diceContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .diceRow {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #rollButton {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #rollButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Dice Probability</h1>
+<button id="rollButton">Roll 12 Dice</button>
+
+<!-- Dice Images -->
+<div id="diceContainer"></div>
+
+<!-- Result Table -->
+<table id="resultTable">
+    <thead>
+        <tr>
+            <th>Face</th>
+            <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+function start() {
+    // Register button listener
+    var button = document.getElementById("rollButton");
+    button.addEventListener("click", roll12Dice, false);
+
+    // Get image container and result table body
+    diceContainer = document.getElementById("diceContainer");
+    resultTableBody = document.querySelector("#resultTable tbody");
+}
+
+// Roll 12 dice and display results
+function roll12Dice() {
+    // Clear previous dice images and result table
+    diceContainer.innerHTML = "";
+    resultTableBody.innerHTML = "";
+
+    let results = [];
+    let faceCounts = [0, 0, 0, 0, 0, 0];
+
+    for (let i = 0; i < 12; i++) {
+        let dieValue = Math.floor(1 + Math.random() * 6);
+        results.push(dieValue);
+        faceCounts[dieValue - 1]++;
+    }
+
+    let diceRow1 = document.createElement("div");
+    diceRow1.className = "diceRow";
+    let diceRow2 = document.createElement("div");
+    diceRow2.className = "diceRow";
+
+    for (let i = 0; i < results.length; i++) {
+        let dieNumber = i + 1;
+        let dieValue = results[i];
+        let diceRow = i < 6 ? diceRow1 : diceRow2;
+
+        appendImage(diceRow, `die${dieNumber}Image`, dieValue);
+    }
+
+    diceContainer.appendChild(diceRow1);
+    diceContainer.appendChild(diceRow2);
+
+    for (let i = 0; i < faceCounts.length; i++) {
+        let probability = (faceCounts[i] / 12 * 100).toFixed(2);
+
+        // Add row to result table
+        let newRow = resultTableBody.insertRow();
+        let cell1 = newRow.insertCell(0);
+        let cell2 = newRow.insertCell(1);
+        cell1.textContent = i + 1;
+        cell2.textContent = `${probability}%`;
+    }
+}
+
+// Append image to the container
+function appendImage(container, dieId, dieValue) {
+    let dieImg = document.createElement("img");
+    dieImg.setAttribute("src", `die${dieValue}.png`);
+    dieImg.setAttribute("alt", `die image with ${dieValue} spot(s)`);
+    container.appendChild(dieImg);
+}
+
+// Add event listener when the page loads
+window.addEventListener("load", start, false);
+</script>
+
+</body>
+</html>
+
+
+
+
+
